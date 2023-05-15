@@ -1,0 +1,36 @@
+---
+title: "introduction to vatcheckapi"
+author: Dominik Kukacka
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+`vatcheckapi` is the official package for accessing VAT ID data from [vatcheckapi.com](https://vatcheckapi.com). The API requires a registered API key. The free plan provides 100 free monthly requests. You can register an API key [here](https://app.vatcheckapi.com/register). [Premium plans](https://vatcheckapi.com/pricing/) provide access to more requests and more data endpoints. The full API documentation can be found [here](https://vatcheckapi.com/docs/)
+
+## Setting up authentication
+
+After registering your API key, set your API key locally by calling the helper function `vatcheckapi_api_key()` or by manually calling `Sys.setenv(VATCHECKAPI_API_KEY = <key>)`.
+
+## Making your first API request
+
+Call `get_vat_info("LU26375245")` to retrieve all information about the specified VAT ID.
+
+## Available Functions
+
+* `get_api_status()` - can be used to check whether the API is available. Requests do not count towards your monthly request volume. Information about your API key are provided. Available in `free & paid` plans.
+* `get_vat_info()` - provides you with information about any VAT ID. Available in `free & paid` plans.
+
+Please read our [API documentation](https://vatcheckapi.com/docs/) for all information.
